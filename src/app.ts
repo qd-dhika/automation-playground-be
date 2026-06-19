@@ -5,6 +5,7 @@ import authRoutes from './routes/auth.routes';
 import productRoutes from './routes/product.routes';
 import cartRoutes from './routes/cart.routes';
 import orderRoutes from './routes/order.routes';
+import profileRoutes from './routes/profile.routes';
 import { errorHandler } from './middleware/errorHandler';
 
 export function createApp() {
@@ -26,6 +27,7 @@ export function createApp() {
   app.use('/api', productRoutes);
   app.use('/api/cart', cartRoutes);
   app.use('/api/orders', orderRoutes);
+  app.use('/api/profile', profileRoutes);
 
   app.use(errorHandler);
   return app;

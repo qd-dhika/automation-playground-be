@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import { env } from './config/env';
 import authRoutes from './routes/auth.routes';
+import productRoutes from './routes/product.routes';
 import { errorHandler } from './middleware/errorHandler';
 
 export function createApp() {
@@ -20,6 +21,7 @@ export function createApp() {
   });
 
   app.use('/api/auth', authRoutes);
+  app.use('/api', productRoutes);
 
   app.use(errorHandler);
   return app;

@@ -6,6 +6,7 @@ import productRoutes from './routes/product.routes';
 import cartRoutes from './routes/cart.routes';
 import orderRoutes from './routes/order.routes';
 import profileRoutes from './routes/profile.routes';
+import adminRoutes from './routes/admin.routes';
 import { errorHandler } from './middleware/errorHandler';
 
 export function createApp() {
@@ -28,6 +29,7 @@ export function createApp() {
   app.use('/api/cart', cartRoutes);
   app.use('/api/orders', orderRoutes);
   app.use('/api/profile', profileRoutes);
+  app.use('/api/admin', adminRoutes);
 
   app.use(errorHandler);
   return app;

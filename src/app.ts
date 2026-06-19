@@ -1,6 +1,8 @@
 import express from 'express';
 import cors from 'cors';
 import { env } from './config/env';
+import authRoutes from './routes/auth.routes';
+import { errorHandler } from './middleware/errorHandler';
 
 export function createApp() {
   const app = express();
@@ -17,7 +19,8 @@ export function createApp() {
     res.json({ data: { status: 'ok' } });
   });
 
-  // Routes will be added here in later tasks
+  app.use('/api/auth', authRoutes);
 
+  app.use(errorHandler);
   return app;
 }

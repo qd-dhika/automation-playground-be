@@ -42,6 +42,7 @@ async function main() {
     { name: 'Bluetooth Speaker', description: 'Portable waterproof bluetooth speaker', price: 59.99, stock: 70, categoryId: categories[0].id },
   ];
 
+  await prisma.product.deleteMany({});
   for (const product of productData) {
     await prisma.product.create({ data: product });
   }
